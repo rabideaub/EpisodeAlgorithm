@@ -1,0 +1,21 @@
+#!/bin/bash
+#stata-mp -b collapse_mds_all.do
+#cd /schaeffer-b/sch-protected/from-projects/VERTICAL-INTEGRATION/rabideau/Data/MDS
+#st mds_stays_2006_2014_1.dta mds_stays_2006_2014_1.sas7bdat
+#cd /schaeffer-b/sch-protected/from-projects/VERTICAL-INTEGRATION/rabideau/Programs/Romley
+#sas gen_pta_in_datasets4.sas
+#sas gen_bene_dataset.sas
+#sas gen_cov_dataset.sas
+#sas 00_build_stay_dataset.sas
+#sas 00B_build_stay_dataset_all_simple.sas
+#sas 0A_create_flag_transfers_dataset.sas
+sas 1_Create_initial_index_with_transfers__MI_HF_PN_SK_CD.sas
+sas 2_add_Bene_data__ALL.sas
+sas 3_add_coverage_and_hospice__ALL.sas
+sas 4_bundled_index_cases__ALL.sas
+sas 5_Post_Index__MI_HF_PN_SK_CD.sas
+sas 6_Final_Index__MI_HF_PN_SK_CD.sas
+sas fh_readmission_V2014_short.sas
+sh gen_log_summary_report_fh
+sas day_array.sas
+#sas day_array_snf.sas

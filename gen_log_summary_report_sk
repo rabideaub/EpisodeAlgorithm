@@ -1,0 +1,5 @@
+grep -H "Summary Report" gen_*.log 0*.log 1*.log 2*.log 3*.log 4*.log 5*.log 6*.log kh_readmission*.log  > summary_report_sk.txt 	#Read in appropriate logs#
+sed -i "/\bput\b/{x;p;x;}" summary_report_sk.txt											#Add in a linebreak#
+sed -i "/\bput\b/d" summary_report_sk.txt												#Delete this superfluous line#
+sed -i ':a;s/\b\([0-9]\+\)\([0-9]\{3\}\)\b/\1,\2/;ta' summary_report_sk.txt								#This adds commas to numbers#
+sed -i 's/Summary Report -//g' summary_report_sk.txt											#Removes redundant text from output#
